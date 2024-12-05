@@ -90,3 +90,29 @@ if __name__ == '__main__':
              query = take_command().lower()
              if "How are you?" in query:
                 speak("I am absolutely fine sir.")
+
+             elif "open command prompt" in query:
+                 speak("Opening command prompt sir")
+                 os.system('start cmd')
+
+             elif "open camera" in query:
+                 speak("opening Camera sir")
+                 sp.run('start microsoft.windows.camera:',shell=True)
+
+             elif "open notepad" in query:
+                 speak('opening Notepad sir')
+                 notepad_path = "C:\\Windows\\System32\\notepad.exe"
+                 os.startfile(notepad_path)
+
+
+             elif "open discord" in query:
+                 speak('open Discord sir')
+                 discord_path = "C:\\Users\\Rene\\AppData\\Local\\Discord\\app-1.0.9173\\Discord.exe"
+                 os.startfile(discord_path)
+
+             elif "open code editor" in query:
+                speak("Opening VS code sir")
+                VS_code_location = "C:\\Users\\Rene\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+                os.startfile(VS_code_location)
+             
+
