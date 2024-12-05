@@ -7,6 +7,7 @@ from decouple import config
 from datetime import datetime
 from conv import random_text 
 from random import choice
+from online import find_my_ip, search_on_google, search_on_wikipedia, youtube
 
 engine = pyttsx3.init('sapi5')
 engine.setProperty('volume',1.5)
@@ -114,5 +115,28 @@ if __name__ == '__main__':
                 speak("Opening VS code sir")
                 VS_code_location = "C:\\Users\\Rene\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
                 os.startfile(VS_code_location)
-             
+             elif "ip adress" in query:
+                 ip_adress = find_my_ip()
+                 speak(
+                     f"your ip adress is {ip_adress}"
+                 )
+                 print(f"Your Ip Adress is {ip_adress}")
 
+             elif "open youtube" in query:
+                 speak("What do you want to play on Youtube sir?")
+                 video = take_command().lower()
+                 youtube(video)
+                 
+             elif "open google" in query:
+                 speak("What do you want to search {USER}")
+                 query = take_command().lower()
+                 search_on_google(query)
+        
+        
+             elif "wikipedia" in query:
+                 speak("What do you want to search on Wikipedia sir")
+                 search = take_command().lower()
+                 results = search_on_wikipedia(search)
+                 speak(f"According to wikipedia,{results}")
+                 speak("I am printing it on Terminal.")
+                 print(results)    
